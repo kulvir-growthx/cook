@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist",
+    "dev": "bun --hot src/index.ts",
+    "lint": "eslint .",
+    "start": "bun dist/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/database": "*",
+    "hono": "^4.6.17",
+    "tsup": "^8.3.5"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@repo/eslint": "*",
+    "@repo/typescript": "*"
+  }
+}
