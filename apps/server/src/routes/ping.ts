@@ -11,14 +11,14 @@ export const ping = new Hono()
     });
   })
   .get('/throw', async c => {
-    if ('a' === 'a') {
-      throw new HTTPException(500, { message: 'I wrote shitty code' });
-    }
+    const users = await db.select().from(usersTable);
 
-    const res = await db.select().from(usersTable);
-    console.log(res);
+    if (users.length === 0) {
+      throw new HTTPException(400, { message: 'I wrote shitty code' });
+    }
 
     return c.json({
       status: 'success',
+      users,
     });
   });
