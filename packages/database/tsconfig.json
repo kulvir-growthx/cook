@@ -4,8 +4,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "outDir": "dist"
   },
-  "include": ["**/*.ts", "**/*.tsx", "tsup.config.ts"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

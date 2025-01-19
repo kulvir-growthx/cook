@@ -48,12 +48,6 @@ export const defaultConfig = [
             ['sibling', 'parent'],
             'type',
           ],
-          pathGroups: [
-            {
-              pattern: '@/**',
-              group: 'parent',
-            },
-          ],
         },
       ],
     }

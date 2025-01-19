@@ -1,28 +1,23 @@
+import { seed } from 'drizzle-seed';
+
+import { db } from './index';
 import { usersTable } from '@/schema/users';
 import { jobsTable } from '@/schema/jobs';
 
-import { db } from '.';
-
 async function main() {
-  console.log('starting the seeding!!!');
-
-  await db.insert(usersTable).values({
-    firstName: 'MyUser',
-    email: 'user.op@skill-issues.gg',
-    age: 69,
-  });
-
-  await db.insert(jobsTable).values({
-    role: 'HTMX Engineer',
-    location: 'At your own convenience convenience',
-  });
+  console.log('starting the seeding');
+  await seed(db, { usersTable, jobsTable }, { count: 2 });
 }
 
 main()
   .then(() => {
-    console.log('seeding completed!!!');
+    console.log('seeding done!!!');
   })
   .catch(err => {
+    console.log('some error in seeding the database');
     console.log(err);
+    process.exit(1);
   })
-  .finally(() => process.exit());
+  .finally(() => {
+    process.exit(0);
+  });
