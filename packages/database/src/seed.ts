@@ -1,4 +1,5 @@
-import { usersTable, jobsTable } from '@/schema';
+import { usersTable } from '@/schema/users';
+import { jobsTable } from '@/schema/jobs';
 
 import { db } from '.';
 

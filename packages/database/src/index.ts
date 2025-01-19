@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/node-postgres';
 
-import { usersTable, jobsTable } from '@/schema';
+import { usersTable } from '@/schema/users';
+import { jobsTable } from '@/schema/jobs';
 
 const dbUrl = process.env.DATABASE_URL!;
 
