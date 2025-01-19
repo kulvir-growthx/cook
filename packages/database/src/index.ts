@@ -1,20 +1,17 @@
 import { drizzle } from 'drizzle-orm/node-postgres';
-import { config } from 'dotenv';
 
-import { usersTable } from '@/schema/users';
-import { jobsTable } from '@/schema/jobs';
+import { usersTable, jobsTable } from '@/schema';
 
-config();
-
-const dbUrl = process.env.DATABASE_URL!;
-console.log('dbstring is', dbUrl);
+const getEnvVariable = (name: string) => {
+  const value = process.env[name];
+  if (value == null) throw new Error(`environment variable ${name} not found`);
+  return value;
+};
 
 const schema = { ...usersTable, ...jobsTable };
 
 export const db = drizzle({
-  connection: dbUrl,
+  connection: getEnvVariable('DATABASE_URL'),
   casing: 'snake_case',
   schema,
 });
-
-export * from 'drizzle-orm/expressions';

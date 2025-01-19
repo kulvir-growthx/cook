@@ -1,12 +1,16 @@
 import { defineConfig } from 'drizzle-kit';
 
-const dbUrl = process.env.DATABASE_URL!;
+const getEnvVariable = (name: string) => {
+  const value = process.env[name];
+  if (value == null) throw new Error(`environment variable ${name} not found`);
+  return value;
+};
 
 export default defineConfig({
   out: './migrations',
   schema: './src/schema',
   dialect: 'postgresql',
   dbCredentials: {
-    url: dbUrl,
+    url: getEnvVariable('DATABASE_URL'),
   },
 });

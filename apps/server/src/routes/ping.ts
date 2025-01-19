@@ -10,7 +10,7 @@ export const ping = new Hono()
       message: 'pong',
     });
   })
-  .get('/throw', async c => {
+  .get('/users', async c => {
     const users = await db.select().from(usersTable);
 
     if (users.length === 0) {

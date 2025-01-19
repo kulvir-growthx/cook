@@ -2,7 +2,7 @@
 
 ## `.env`
 
-set the `.env` file in `packages/database`
+set the `.env` file in `apps/server`
 
 ```
 DATABASE_URL="postgresql://admin:password@localhost:5432/job_board"
