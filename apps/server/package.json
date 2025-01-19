@@ -2,9 +2,9 @@
   "name": "server",
   "type": "module",
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --target bun",
+    "build": "bun build ./src/index.ts --outdir ./dist --target bun --sourcemap=linked --packages external",
     "clean": "rm -rf dist .turbo",
-    "dev": "bun --hot src/index.ts",
+    "dev": "bun --watch src/index.ts",
     "lint": "eslint .",
     "start": "bun dist/index.js",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
