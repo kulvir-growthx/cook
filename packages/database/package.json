@@ -15,11 +15,11 @@
     "db:push": "drizzle-kit push",
     "db:seed": "bun run src/seed.ts",
     "db:studio": "drizzle-kit studio",
+    "dev": "bun --hot src/index.ts",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.4",
     "pg": "^8.13.1"
   },
